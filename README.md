@@ -25,45 +25,16 @@ Aplicar conceitos de IOC, DI Patterns, documentação de API com swagger e estru
 
 ## 5. Estrutura
 
-#### 5.1. Controllers
-
-Utilizados para o tratamento das requisições Http.
-
-#### 5.2. Filters
-
-Utilizados validar o envio das informações.
-
-#### 5.3. Infrastructure/Data
-
-Camada de acesso aos dados
-
-###### 5.3.1. Mappings
-
-Configuração das tabelas criadas no banco de dados
-
-###### 5.3.1. Repositories
-
-Utilizadas para operações no banco de dados
-
-#### 5.4. Migrations
-
-Criadas pelo EntityFramwork
-
-#### 5.5. Models
-
-Camada de modelos
-
-###### 5.5.1. Entities
-
-Utilizadas para formatar as entidades
-
-###### 5.5.2. ViewModels
-
-Utilizadas para formatar o recebimento e envio de parâmetros
-
-#### 5.6. Services
-
-Camada de serviços
+ - Controllers - Utilizados para o tratamento das requisições Http.
+ - Filters - Utilizados validar o envio das informações.
+ - Infrastructure/Data - Camada de acesso aos dados
+    - Mappings - Configuração das tabelas criadas no banco de dados
+    - Repositories - Utilizadas para operações no banco de dados
+ - Migrations - Criadas pelo EntityFramwork
+ - Models - Camada de modelos
+    - Entities - Utilizadas para formatar as entidades
+    - ViewModels - Utilizadas para formatar o recebimento e envio de parâmetros
+ - Services - Camada de serviços
 
 # 6. Setup
 
