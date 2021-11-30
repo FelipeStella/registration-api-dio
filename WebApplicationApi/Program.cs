@@ -8,6 +8,7 @@ using WebApplicationAPI.Infrastructure.Data.Repositories;
 using WebApplicationAPI.Services;
 using WebApplicationAPI.Infrastructure.Data.Repositories.Interfaces;
 using WebApplicationAPI.Services.Interfaces;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +47,10 @@ builder.Services.AddSwaggerGen(c =>
     }
   });
 
+  var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+  var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+  c.IncludeXmlComments(xmlPath);
+
 });
 
 var config = new ConfigurationBuilder()
@@ -81,6 +86,7 @@ builder.Services.AddDbContext<ApiDbContext>(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddTransient<IConfigurationBuilder, ConfigurationBuilder>();
 
 var app = builder.Build();
 

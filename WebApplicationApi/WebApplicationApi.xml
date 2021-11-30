@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApplicationApi</name>
+    </assembly>
+    <members>
+        <member name="M:WebApplicationApi.Controllers.CoursesController.Post(WebApplicationApi.Models.CoursesViewModelInput)">
+            <summary>
+            Este serviço permite cadastrar curso para o usuário autenticado.
+            </summary>
+            <param name="coursesViewModelInput"></param>
+            <returns>Retorna status 201 e dados do curso do usuário</returns>
+        </member>
+        <member name="M:WebApplicationApi.Controllers.CoursesController.Get">
+            <summary>
+            Este serviço permite obter todos os cursos ativos do usuário.
+            </summary>
+            <returns>Retorna status ok e dados do curso do usuário</returns>
+        </member>
+        <member name="M:WebApplicationApi.Controllers.UserController.Login(WebApplicationApi.Models.Users.LoginViewModelInput)">
+            <summary>
+            Este serviço permite autenticar um usuário cadastrado e ativo.
+            </summary>
+            <param name="loginViewModelInput"></param>
+            <returns>Retorna status ok, dados do usuario e o token em caso de sucesso</returns>
+        </member>
+        <member name="M:WebApplicationApi.Controllers.UserController.Register(WebApplicationApi.Models.Users.RegisterViewModelInput)">
+            <summary>
+            Este serviço permite cadastrar um novo usuário.
+            </summary>
+            <param name="registerViewModelInput">View model do registro de login</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

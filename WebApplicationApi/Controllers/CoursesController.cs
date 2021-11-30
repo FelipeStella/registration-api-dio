@@ -21,6 +21,11 @@ namespace WebApplicationApi.Controllers
       _courseRepository = courseRepository;
     }
 
+    /// <summary>
+    /// Este serviço permite cadastrar curso para o usuário autenticado.
+    /// </summary>
+    /// <param name="coursesViewModelInput"></param>
+    /// <returns>Retorna status 201 e dados do curso do usuário</returns>
     [SwaggerResponse(StatusCodes.Status201Created, "Curso cadastrado com sucesso", typeof(CoursesViewModelInput))]
     [SwaggerResponse(StatusCodes.Status400BadRequest, "Campos obrigatórios", typeof(ValidationFieldViewModelOutput))]
     [SwaggerResponse(StatusCodes.Status500InternalServerError, "Erro interno", typeof(GenericErrorViewModel))]
@@ -40,6 +45,10 @@ namespace WebApplicationApi.Controllers
       return Created("Curso adicionado com sucesso!", coursesViewModelInput);
     }
 
+    /// <summary>
+    /// Este serviço permite obter todos os cursos ativos do usuário.
+    /// </summary>
+    /// <returns>Retorna status ok e dados do curso do usuário</returns>
     [SwaggerResponse(StatusCodes.Status200OK, "Dados exibidos com sucesso", typeof(CoursesViewModelOutput))]
     [SwaggerResponse(StatusCodes.Status400BadRequest, "Campos obrigatórios", typeof(ValidationFieldViewModelOutput))]
     [SwaggerResponse(StatusCodes.Status500InternalServerError, "Erro interno", typeof(GenericErrorViewModel))]
