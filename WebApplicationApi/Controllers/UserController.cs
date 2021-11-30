@@ -3,6 +3,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using WebApplicationApi.Filters;
 using WebApplicationApi.Models;
 using WebApplicationApi.Models.Users;
+using WebApplicationApi.Models.Views.Users;
 using WebApplicationAPI.Business.Entities;
 using WebApplicationAPI.Infrastructure.Data.Repositories.Interfaces;
 using WebApplicationAPI.Services.Interfaces;
@@ -31,7 +32,7 @@ namespace WebApplicationApi.Controllers
     /// </summary>
     /// <param name="loginViewModelInput"></param>
     /// <returns>Retorna status ok, dados do usuario e o token em caso de sucesso</returns>
-    [SwaggerResponse(StatusCodes.Status200OK, "Login autorizado", typeof(LoginViewModelInput))]
+    [SwaggerResponse(StatusCodes.Status200OK, "Login autorizado", typeof(LoginViewModelOutput))]
     [SwaggerResponse(StatusCodes.Status400BadRequest, "Campos obrigatórios", typeof(ValidationFieldViewModelOutput))]
     [SwaggerResponse(StatusCodes.Status500InternalServerError, "Erro interno", typeof(GenericErrorViewModel))]
     [HttpPost]
