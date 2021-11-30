@@ -26,7 +26,7 @@ namespace WebApplicationApi.Controllers
     /// </summary>
     /// <param name="coursesViewModelInput"></param>
     /// <returns>Retorna status 201 e dados do curso do usuário</returns>
-    [SwaggerResponse(StatusCodes.Status201Created, "Curso cadastrado com sucesso", typeof(CoursesViewModelInput))]
+    [SwaggerResponse(StatusCodes.Status201Created, "Curso cadastrado com sucesso", typeof(CoursesViewModelOutput))]
     [SwaggerResponse(StatusCodes.Status400BadRequest, "Campos obrigatórios", typeof(ValidationFieldViewModelOutput))]
     [SwaggerResponse(StatusCodes.Status500InternalServerError, "Erro interno", typeof(GenericErrorViewModel))]
     [HttpPost]
