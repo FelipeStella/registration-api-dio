@@ -40,7 +40,7 @@ namespace WebApplicationApi.Controllers
     [CustomValidationModelState]
     public IActionResult Login(LoginViewModelInput loginViewModelInput)
     {
-      User user = _userRepository.Find(loginViewModelInput.LoginProvider);
+      User user = _userRepository.Find(loginViewModelInput);
 
       if (user == null)
         return BadRequest("Usuário ou senha incorretos!");
