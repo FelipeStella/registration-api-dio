@@ -9,15 +9,19 @@ namespace WebApplicationAPI.Services
 {
   public class AuthenticationService : IAuthenticationService
   {
-    private readonly IConfiguration _configuration;
+    private readonly IConfigurationBuilder _configuration;
 
-    public AuthenticationService(IConfiguration configuration)
+    public AuthenticationService(IConfigurationBuilder configuration)
     {
       _configuration = configuration;
     }
     public string GetToken(UserViewModelOutput userViewModelOutput)
     {
-      var secret = Encoding.ASCII.GetBytes(_configuration.GetSection("JwtConfigurations:Secret").Value);
+      var config = _configuration
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json").Build();
+
+      var secret = Encoding.ASCII.GetBytes(config.GetSection("JwtConfigurations:Secret").Value);
       var symmetricSecurityKey = new SymmetricSecurityKey(secret);
       var securityTokenDescriptor = new SecurityTokenDescriptor
       {

@@ -26,6 +26,11 @@ namespace WebApplicationApi.Controllers
       _authenticationService = authenticationService;
     }
 
+    /// <summary>
+    /// Este serviço permite autenticar um usuário cadastrado e ativo.
+    /// </summary>
+    /// <param name="loginViewModelInput"></param>
+    /// <returns>Retorna status ok, dados do usuario e o token em caso de sucesso</returns>
     [SwaggerResponse(StatusCodes.Status200OK, "Login autorizado", typeof(LoginViewModelInput))]
     [SwaggerResponse(StatusCodes.Status400BadRequest, "Campos obrigatórios", typeof(ValidationFieldViewModelOutput))]
     [SwaggerResponse(StatusCodes.Status500InternalServerError, "Erro interno", typeof(GenericErrorViewModel))]
@@ -55,6 +60,11 @@ namespace WebApplicationApi.Controllers
       });
     }
 
+    /// <summary>
+    /// Este serviço permite cadastrar um novo usuário.
+    /// </summary>
+    /// <param name="registerViewModelInput">View model do registro de login</param>
+    /// <returns></returns>
     [SwaggerResponse(StatusCodes.Status200OK, "Registro realizado com sucesso", typeof(RegisterViewModelInput))]
     [SwaggerResponse(StatusCodes.Status400BadRequest, "Campos obrigatórios", typeof(ValidationFieldViewModelOutput))]
     [SwaggerResponse(StatusCodes.Status500InternalServerError, "Erro interno", typeof(GenericErrorViewModel))]
