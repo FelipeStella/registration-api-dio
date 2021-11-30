@@ -1,4 +1,5 @@
-﻿using WebApplicationAPI.Business.Entities;
+﻿using WebApplicationApi.Models.Users;
+using WebApplicationAPI.Business.Entities;
 using WebApplicationAPI.Infrastructure.Data.Repositories.Interfaces;
 
 namespace WebApplicationAPI.Infrastructure.Data.Repositories
@@ -18,9 +19,12 @@ namespace WebApplicationAPI.Infrastructure.Data.Repositories
       _context.SaveChanges();
     }
 
-    public User Find(string username)
+    public User Find(LoginViewModelInput loginViewModelInput)
     {   
-      return _context.User.FirstOrDefault(u => u.Name == username);
+      return _context.User.FirstOrDefault(
+      u => u.Name == loginViewModelInput.LoginProvider 
+      && u.Password == loginViewModelInput.ProviderKey
+      );
     }
   }
   

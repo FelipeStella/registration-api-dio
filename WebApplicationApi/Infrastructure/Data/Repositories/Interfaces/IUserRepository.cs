@@ -1,10 +1,11 @@
-﻿using WebApplicationAPI.Business.Entities;
+﻿using WebApplicationApi.Models.Users;
+using WebApplicationAPI.Business.Entities;
 
 namespace WebApplicationAPI.Infrastructure.Data.Repositories.Interfaces
 {
   public interface IUserRepository
   {
     public void Add(User user);
-    User Find(string loginProvider);
+    User Find(LoginViewModelInput loginViewModelInput);
   }
 }
