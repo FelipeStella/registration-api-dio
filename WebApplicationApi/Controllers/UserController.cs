@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.IO;
 using WebApplicationApi.Filters;
 using WebApplicationApi.Models;
 using WebApplicationApi.Models.Users;
@@ -43,7 +44,7 @@ namespace WebApplicationApi.Controllers
       User user = _userRepository.Find(loginViewModelInput);
 
       if (user == null)
-        return BadRequest("Usuário ou senha incorretos!");
+        return Unauthorized("Usuário ou senha incorretos!");
 
       var userViewModelOutput = new UserViewModelOutput()
       {
